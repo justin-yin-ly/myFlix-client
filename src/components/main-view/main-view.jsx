@@ -19,30 +19,32 @@ export const MainView = () => {
             return;
         }
 
+        //fetch("https://cinedata-05d7865bba09.herokuapp.com/movies", {
+        //    headers: { Authorization: `Bearer ${token}` },
+        //})
+        //    .then((response) => response.json())
+        //    .then((movies) => {
+        //        setMovies(movies);
+        //    });
+
         fetch("https://cinedata-05d7865bba09.herokuapp.com/movies", {
-            headers: { Authorization: `Bearer ${token}` },
+            headers: { Authorization: `Bearer ${token}`},
         })
-            .then((response) => response.json())
-            .then((movies) => {
-                setMovies(movies);
+        .then((response) => response.json())
+        .then((data) => {
+            const moviesFromAPI = data.map((movie) => {
+                return {
+                    id: movie._id,
+                    image: movie.imagePath,
+                    title: movie.title,
+                    genre: movie.genre.genreID,
+                    director: movie.director.directorID,
+                    description: movie.description
+                };
             });
 
-        //fetch("https://cinedata-05d7865bba09.herokuapp.com/movies")
-        //.then((response) => response.json())
-        //.then((data) => {
-        //    const moviesFromAPI = data.map((movie) => {
-        //        return {
-        //            id: movie._id,
-        //            image: movie.imagePath,
-        //            title: movie.title,
-        //            genre: movie.genre.genreID,
-        //            director: movie.director.directorID,
-        //            description: movie.description
-        //        };
-        //    });
-//
-        //    setMovies(moviesFromAPI);
-        //});
+            setMovies(moviesFromAPI);
+        });
 
     }, [token]);
 

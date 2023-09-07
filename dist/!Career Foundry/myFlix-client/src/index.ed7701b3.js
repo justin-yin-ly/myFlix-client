@@ -27184,29 +27184,30 @@ const MainView = ()=>{
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
     (0, _react.useEffect)(()=>{
         if (!token) return;
+        //fetch("https://cinedata-05d7865bba09.herokuapp.com/movies", {
+        //    headers: { Authorization: `Bearer ${token}` },
+        //})
+        //    .then((response) => response.json())
+        //    .then((movies) => {
+        //        setMovies(movies);
+        //    });
         fetch("https://cinedata-05d7865bba09.herokuapp.com/movies", {
             headers: {
                 Authorization: `Bearer ${token}`
             }
-        }).then((response)=>response.json()).then((movies)=>{
-            setMovies(movies);
+        }).then((response)=>response.json()).then((data)=>{
+            const moviesFromAPI = data.map((movie)=>{
+                return {
+                    id: movie._id,
+                    image: movie.imagePath,
+                    title: movie.title,
+                    genre: movie.genre.genreID,
+                    director: movie.director.directorID,
+                    description: movie.description
+                };
+            });
+            setMovies(moviesFromAPI);
         });
-    //fetch("https://cinedata-05d7865bba09.herokuapp.com/movies")
-    //.then((response) => response.json())
-    //.then((data) => {
-    //    const moviesFromAPI = data.map((movie) => {
-    //        return {
-    //            id: movie._id,
-    //            image: movie.imagePath,
-    //            title: movie.title,
-    //            genre: movie.genre.genreID,
-    //            director: movie.director.directorID,
-    //            description: movie.description
-    //        };
-    //    });
-    //
-    //    setMovies(moviesFromAPI);
-    //});
     }, [
         token
     ]);
@@ -27219,13 +27220,13 @@ const MainView = ()=>{
                 }
             }, void 0, false, {
                 fileName: "Documents/!Career Foundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 52,
+                lineNumber: 54,
                 columnNumber: 17
             }, undefined),
             "or",
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signupView.SignupView), {}, void 0, false, {
                 fileName: "Documents/!Career Foundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 60,
+                lineNumber: 62,
                 columnNumber: 17
             }, undefined)
         ]
@@ -27235,14 +27236,14 @@ const MainView = ()=>{
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "Documents/!Career Foundry/myFlix-client/src/components/main-view/main-view.jsx",
-        lineNumber: 67,
+        lineNumber: 69,
         columnNumber: 13
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty."
     }, void 0, false, {
         fileName: "Documents/!Career Foundry/myFlix-client/src/components/main-view/main-view.jsx",
-        lineNumber: 72,
+        lineNumber: 74,
         columnNumber: 16
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27255,12 +27256,12 @@ const MainView = ()=>{
                         }
                     }, movie.id, false, {
                         fileName: "Documents/!Career Foundry/myFlix-client/src/components/main-view/main-view.jsx",
-                        lineNumber: 79,
+                        lineNumber: 81,
                         columnNumber: 21
                     }, undefined))
             }, void 0, false, {
                 fileName: "Documents/!Career Foundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 77,
+                lineNumber: 79,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -27272,13 +27273,13 @@ const MainView = ()=>{
                 children: "Logout"
             }, void 0, false, {
                 fileName: "Documents/!Career Foundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 88,
+                lineNumber: 90,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "Documents/!Career Foundry/myFlix-client/src/components/main-view/main-view.jsx",
-        lineNumber: 76,
+        lineNumber: 78,
         columnNumber: 9
     }, undefined);
 };
@@ -28424,17 +28425,20 @@ const LoginView = ({ onLoggedIn })=>{
         // prevents the page from reloading when you click the submit button (reloading is the button's default behavior)
         event.preventDefault();
         const data = {
-            access: username,
-            secret: password
+            username: username,
+            password: password
         };
         fetch("https://cinedata-05d7865bba09.herokuapp.com/login", {
             method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
             body: JSON.stringify(data)
         }).then((response)=>response.json()).then((data)=>{
             console.log("Login response: ", data);
             if (data.user) {
                 localStorage.setItem("user", JSON.stringify(data.user));
-                localStorgae.setItem("token", data.token);
+                localStorage.setItem("token", data.token);
                 onLoggedIn(data.user, data.token);
             } else alert("No such user");
         }).catch((e)=>{
@@ -28454,13 +28458,13 @@ const LoginView = ({ onLoggedIn })=>{
                         required: true
                     }, void 0, false, {
                         fileName: "Documents/!Career Foundry/myFlix-client/src/components/login-view/login-view.jsx",
-                        lineNumber: 40,
+                        lineNumber: 43,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "Documents/!Career Foundry/myFlix-client/src/components/login-view/login-view.jsx",
-                lineNumber: 38,
+                lineNumber: 41,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -28473,13 +28477,13 @@ const LoginView = ({ onLoggedIn })=>{
                         required: true
                     }, void 0, false, {
                         fileName: "Documents/!Career Foundry/myFlix-client/src/components/login-view/login-view.jsx",
-                        lineNumber: 49,
+                        lineNumber: 52,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "Documents/!Career Foundry/myFlix-client/src/components/login-view/login-view.jsx",
-                lineNumber: 47,
+                lineNumber: 50,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -28487,13 +28491,13 @@ const LoginView = ({ onLoggedIn })=>{
                 children: "Submit"
             }, void 0, false, {
                 fileName: "Documents/!Career Foundry/myFlix-client/src/components/login-view/login-view.jsx",
-                lineNumber: 56,
+                lineNumber: 59,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "Documents/!Career Foundry/myFlix-client/src/components/login-view/login-view.jsx",
-        lineNumber: 37,
+        lineNumber: 40,
         columnNumber: 5
     }, undefined);
 };
