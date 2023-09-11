@@ -27,6 +27,32 @@ export const MainView = () => {
         //        setMovies(movies);
         //    });
 
+        var genreDict = {};
+        fetch("https://cinedata-05d7865bba09.herokuapp.com/genres", {
+            headers: { Authorization: `Bearer ${token}`},
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            for(let i = 0; i < data.length; i++)
+            {
+                genreDict[data[i]._id] = data[i].name;
+            }
+        })
+        ;
+
+        var directorDict = {};  
+        fetch("https://cinedata-05d7865bba09.herokuapp.com/directors", {
+            headers: { Authorization: `Bearer ${token}`},
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            for(let i = 0; i < data.length; i++)
+            {
+                directorDict[data[i]._id] = data[i].name;
+            }
+        })
+        ;
+
         fetch("https://cinedata-05d7865bba09.herokuapp.com/movies", {
             headers: { Authorization: `Bearer ${token}`},
         })
@@ -37,8 +63,8 @@ export const MainView = () => {
                     id: movie._id,
                     image: movie.imagePath,
                     title: movie.title,
-                    genre: movie.genre.genreID,
-                    director: movie.director.directorID,
+                    genre: genreDict[movie.genre.genreID],
+                    director: directorDict[movie.director.directorID],
                     description: movie.description
                 };
             });
