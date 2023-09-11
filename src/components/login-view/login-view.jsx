@@ -9,12 +9,15 @@ export const LoginView = ({ onLoggedIn }) => {
     event.preventDefault();
 
     const data = {
-      access: username,
-      secret: password
+      username: username,
+      password: password
     };
 
     fetch("https://cinedata-05d7865bba09.herokuapp.com/login", {
       method: "POST",
+      headers: {
+        "Content-Type" : "application/json"
+      },
       body: JSON.stringify(data)
     })
         .then((response) => response.json())
@@ -22,7 +25,7 @@ export const LoginView = ({ onLoggedIn }) => {
             console.log("Login response: ", data);
             if (data.user) {
                 localStorage.setItem("user", JSON.stringify(data.user));
-                localStorgae.setItem("token", data.token);
+                localStorage.setItem("token", data.token);
                 onLoggedIn(data.user, data.token);
             } else {
                 alert("No such user");
