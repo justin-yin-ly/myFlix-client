@@ -1,5 +1,20 @@
-$color: steelblue;
+$body-bg: rgb(158, 30, 30);
 
-.my-flix {
-    color: $color;
+
+@import '~bootstrap/scss/bootstrap.scss';
+
+.container, .h-100 {
+    background-color: rgb(228, 193, 98);
+}
+
+.submit {
+    margin-top: 20px;
+}
+
+.logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 150px;
 }
