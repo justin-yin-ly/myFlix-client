@@ -13206,4 +13206,12 @@ textarea.form-control-lg {
   margin-top: 20px;
 }
 
+.logout {
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  margin: auto;
+  display: flex;
+}
+
 /*# sourceMappingURL=index.4485ebe5.css.map */

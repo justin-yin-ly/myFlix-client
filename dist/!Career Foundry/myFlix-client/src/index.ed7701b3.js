@@ -27309,15 +27309,22 @@ const MainView = ()=>{
                         lineNumber: 104,
                         columnNumber: 17
                     }, undefined)),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                    className: "mb-4 logout",
-                    variant: "primary",
-                    onClick: ()=>{
-                        setUser(null);
-                        setToken(null);
-                        localStorage.clear();
-                    },
-                    children: "Logout"
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                        className: "mb-4 logout",
+                        variant: "primary",
+                        type: "submit",
+                        onClick: ()=>{
+                            setUser(null);
+                            setToken(null);
+                            localStorage.clear();
+                        },
+                        children: "Logout"
+                    }, void 0, false, {
+                        fileName: "Documents/!Career Foundry/myFlix-client/src/components/main-view/main-view.jsx",
+                        lineNumber: 114,
+                        columnNumber: 15
+                    }, undefined)
                 }, void 0, false, {
                     fileName: "Documents/!Career Foundry/myFlix-client/src/components/main-view/main-view.jsx",
                     lineNumber: 113,
@@ -27341,7 +27348,7 @@ $RefreshReg$(_c, "MainView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"6WHHq","react":"NBdO3","../movie-card/movie-card":"axt1A","../movie-view/movie-view":"lR9n8","../login-view/login-view":"bM29i","../signup-view/signup-view":"fnw1z","react-bootstrap/Row":"iwMV7","react-bootstrap/Col":"6q2c5","@parcel/transformer-js/src/esmodule-helpers.js":"iN8YP","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"6flwx","react-bootstrap/Button":"5986m"}],"axt1A":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"6WHHq","react":"NBdO3","../movie-card/movie-card":"axt1A","../movie-view/movie-view":"lR9n8","../login-view/login-view":"bM29i","../signup-view/signup-view":"fnw1z","react-bootstrap/Row":"iwMV7","react-bootstrap/Col":"6q2c5","react-bootstrap/Button":"5986m","@parcel/transformer-js/src/esmodule-helpers.js":"iN8YP","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"6flwx"}],"axt1A":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$581c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

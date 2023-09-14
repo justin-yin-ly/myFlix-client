@@ -110,12 +110,14 @@ export const MainView = () => {
                   />
                 </Col>
               ))}
-              <Button className="mb-4 logout" variant="primary" onClick={() => { 
+              <div>
+              <Button className="mb-4 logout" variant="primary" type="submit" onClick={() => { 
                 setUser(null); setToken(null); localStorage.clear(); 
                 }
                 }>
                   Logout
               </Button>
+              </div>
             </>
           )}
         </Row>
