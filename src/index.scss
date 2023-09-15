@@ -1,9 +1,8 @@
 $body-bg: rgb(158, 30, 30);
 
-
 @import '~bootstrap/scss/bootstrap.scss';
 
-.container, .h-100 {
+.container, .h-100, .modal-content {
     background-color: rgb(228, 193, 98);
 }
 

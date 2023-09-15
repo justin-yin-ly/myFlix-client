@@ -1,3 +1,5 @@
+
+
 :root, [data-bs-theme="light"] {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -13198,7 +13200,7 @@ textarea.form-control-lg {
   }
 }
 
-.container, .h-100, .modal-content {
+.container, .h-100 {
   background-color: #e4c162;
 }
 
@@ -13214,4 +13216,8 @@ textarea.form-control-lg {
   display: flex;
 }
 
-/*# sourceMappingURL=index.4485ebe5.css.map */
+.user-info {
+  background-color: #fff;
+}
+
+/*# sourceMappingURL=index.04c3c88d.css.map */
