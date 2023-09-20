@@ -12,8 +12,8 @@ export const ProfileView = ({user, token, setUser, movies}) => {
     
     const favoriteMovies = movies.filter((movie) => user.favoriteMovies.includes(movie.id));
 
-    toggleShowUpdate = () => setShowUpdate(!showUpdate);
-    toggleShowDelete = () => setShowDelete(!showDelete);
+    const toggleShowUpdate = () => setShowUpdate(!showUpdate);
+    const toggleShowDelete = () => setShowDelete(!showDelete);
   
     const updateUser = (event) => {
       event.preventDefault();
