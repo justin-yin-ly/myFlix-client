@@ -42879,7 +42879,7 @@ $RefreshReg$(_c, "MovieView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"6WHHq","react-bootstrap":"lxSOd","react-router":"lr2sV","react-router-dom":"5aKCV","@parcel/transformer-js/src/esmodule-helpers.js":"iN8YP","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"6flwx","react":"NBdO3"}],"bM29i":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"6WHHq","react":"NBdO3","react-bootstrap":"lxSOd","react-router":"lr2sV","react-router-dom":"5aKCV","@parcel/transformer-js/src/esmodule-helpers.js":"iN8YP","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"6flwx"}],"bM29i":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$a702 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -43580,7 +43580,7 @@ $RefreshReg$(_c, "ProfileView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"6WHHq","../movie-card/movie-card":"axt1A","react-bootstrap":"lxSOd","@parcel/transformer-js/src/esmodule-helpers.js":"iN8YP","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"6flwx","react":"NBdO3"}],"kAd0K":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"6WHHq","react":"NBdO3","../movie-card/movie-card":"axt1A","react-bootstrap":"lxSOd","@parcel/transformer-js/src/esmodule-helpers.js":"iN8YP","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"6flwx"}],"kAd0K":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ec86 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
