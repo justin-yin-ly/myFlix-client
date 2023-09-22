@@ -1,7 +1,7 @@
 # myFlix Client-side
 
 myFlix is a single-page application that allows users to register an account to use an online movie database for viewing information about various movies,including the genres and directors. 
-Users can register, update, and delete their accounts, as well as add or remove movies to and from a personal list of favorites.
+Users can register, update, and delete their accounts, as well as search for specific movies, and add or remove movies to and from a personal list of favorites.
 
 ## Using this App
 
