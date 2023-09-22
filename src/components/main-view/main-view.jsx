@@ -7,7 +7,11 @@ import { ProfileView } from "../profile-view/profile-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
+let moviesFromAPI = [];
 
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -62,7 +66,7 @@ export const MainView = () => {
         })
         .then((response) => response.json())
         .then((data) => {
-            const moviesFromAPI = data.map((movie) => {
+            moviesFromAPI = data.map((movie) => {
                 return {
                     id: movie._id,
                     image: movie.imagePath,
@@ -88,6 +92,7 @@ export const MainView = () => {
     localStorage.clear();
   }}
 />
+
 <Row className="justify-content-md-center">
   <Routes>
     <Route
@@ -158,6 +163,22 @@ export const MainView = () => {
       path="/"
       element={
         <>
+
+          <Row className="mb-4">
+            <Form>
+              <Form.Group>
+                <Form.Label>Movie Search:</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Search for a title..."
+                  onChange={(e) => {
+                    setMovies(moviesFromAPI.filter((movie) => movie.title.toLowerCase().includes(e.target.value)))
+                  }}
+                />
+              </Form.Group>
+            </Form>
+          </Row>
+
           {!user ? (
             <Navigate to="/login" replace />
           ) : movies.length === 0 ? (
