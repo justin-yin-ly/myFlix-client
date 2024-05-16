@@ -14,6 +14,10 @@ After signing up and logging in, you'll be able to view the database of movies, 
 - [API Github](https://github.com/justin-yin-ly/myFlix-api)
 
 ## Dependencies
+* Bootstrap
+* Prop-types
+* React
+
 You can find the full list of project dependencies in this project's package.json file, linked [here](https://github.com/justin-yin-ly/myFlix-client/blob/main/package.json).
 
 ## API
